@@ -35,3 +35,4 @@ export const Header = ({ theme, onToggleTheme, totalRegistrations }) => {
     </header>
   );
 };
+

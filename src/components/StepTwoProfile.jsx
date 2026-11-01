@@ -152,3 +152,4 @@ export const StepTwoProfile = ({ formData, errors, touched, onChange, onBlur }) 
     </section>
   );
 };
+

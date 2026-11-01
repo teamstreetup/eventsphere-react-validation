@@ -159,3 +159,4 @@ export const StepOnePersonal = ({ formData, errors, touched, onChange, onBlur })
     </section>
   );
 };
+

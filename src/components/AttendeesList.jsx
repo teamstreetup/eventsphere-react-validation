@@ -215,3 +215,4 @@ export const AttendeesList = ({ attendees, onClearAll, onRegisterNew }) => {
     </div>
   );
 };
+

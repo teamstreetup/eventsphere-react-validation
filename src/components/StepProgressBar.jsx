@@ -46,3 +46,4 @@ export const StepProgressBar = ({ currentStep, onStepClick, completedSteps }) =>
     </div>
   );
 };
+
