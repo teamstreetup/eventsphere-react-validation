@@ -9,8 +9,8 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
 
-def build_pdf():
-    pdf_path = os.path.join(os.getcwd(), "EventSphere_WT_Practical_Report.pdf")
+def build_pdf(student_name="Atharv Jadhav", prn="202401100102", division="B", output_filename="EventSphere_WT_Practical_Report.pdf"):
+    pdf_path = os.path.join(os.getcwd(), output_filename)
     doc = SimpleDocTemplate(
         pdf_path,
         pagesize=letter,
@@ -197,10 +197,10 @@ def build_pdf():
 
     # Student metadata block (matching reference PDF layout)
     meta_rows = [
-        [Paragraph("<b>Student Name:</b>", body_text), Paragraph("Atharv Jadhav", body_text)],
-        [Paragraph("<b>PRN:</b>", body_text), Paragraph("202401100102", body_text)],
+        [Paragraph("<b>Student Name:</b>", body_text), Paragraph(student_name, body_text)],
+        [Paragraph("<b>PRN:</b>", body_text), Paragraph(prn, body_text)],
         [Paragraph("<b>Branch:</b>", body_text), Paragraph("Software Engineering", body_text)],
-        [Paragraph("<b>Division:</b>", body_text), Paragraph("B", body_text)],
+        [Paragraph("<b>Division:</b>", body_text), Paragraph(division, body_text)],
     ]
     student_table = Table(meta_rows, colWidths=[2.2*inch, 4.2*inch])
     student_table.setStyle(TableStyle([
@@ -485,4 +485,17 @@ def build_pdf():
     print(f"Successfully generated matching report: {pdf_path}")
 
 if __name__ == '__main__':
-    build_pdf()
+    # 1. Report for Atharv Jadhav
+    build_pdf(
+        student_name="Atharv Jadhav",
+        prn="202401100102",
+        division="B",
+        output_filename="EventSphere_WT_Practical_Report.pdf"
+    )
+    # 2. Report for Chaitanya Umbarkar
+    build_pdf(
+        student_name="Chaitanya Umbarkar",
+        prn="202401100080",
+        division="B",
+        output_filename="EventSphere_WT_Practical_Report_Chaitanya_Umbarkar.pdf"
+    )
