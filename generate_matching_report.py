@@ -198,9 +198,9 @@ def build_pdf():
     # Student metadata block (matching reference PDF layout)
     meta_rows = [
         [Paragraph("<b>Student Name:</b>", body_text), Paragraph("Atharv Jadhav", body_text)],
-        [Paragraph("<b>PRN:</b>", body_text), Paragraph("202401100005", body_text)],
+        [Paragraph("<b>PRN:</b>", body_text), Paragraph("202401100102", body_text)],
         [Paragraph("<b>Branch:</b>", body_text), Paragraph("Software Engineering", body_text)],
-        [Paragraph("<b>Division:</b>", body_text), Paragraph("A", body_text)],
+        [Paragraph("<b>Division:</b>", body_text), Paragraph("B", body_text)],
     ]
     student_table = Table(meta_rows, colWidths=[2.2*inch, 4.2*inch])
     student_table.setStyle(TableStyle([
@@ -472,7 +472,7 @@ def build_pdf():
     story.append(PageBreak())
 
     # =========================================================================
-    # PAGE 10: CONCLUSION CONTD & SIGNATURE
+    # PAGE 10: CONCLUSION CONTD
     # =========================================================================
     story.append(Spacer(1, 30))
     story.append(Paragraph(
@@ -480,24 +480,6 @@ def build_pdf():
         "GitHub, and automated deployment through GitHub Actions to GitHub Pages.",
         body_text
     ))
-
-    story.append(Spacer(1, 60))
-
-    # Academic evaluation signature block
-    sig_rows = [
-        [Paragraph("<b>Student Signature:</b> ___________________________", body_text),
-         Paragraph("<b>Date of Submission:</b> November 1, 2026", body_text)],
-        [Paragraph("<b>Evaluator / Faculty Signature:</b> ___________________________", body_text),
-         Paragraph("<b>Marks / Grade Awarded:</b> _________ / _________", body_text)]
-    ]
-    sig_table = Table(sig_rows, colWidths=[3.2*inch, 3.4*inch])
-    sig_table.setStyle(TableStyle([
-        ('TOPPADDING', (0,0), (-1,-1), 12),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 6),
-        ('LEFTPADDING', (0,0), (-1,-1), 0),
-        ('RIGHTPADDING', (0,0), (-1,-1), 0),
-    ]))
-    story.append(sig_table)
 
     doc.build(story)
     print(f"Successfully generated matching report: {pdf_path}")
